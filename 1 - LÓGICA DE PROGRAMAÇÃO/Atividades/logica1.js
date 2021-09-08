@@ -1,9 +1,9 @@
-/* ------------------ Sistema para cadastro de eventos ------------------ */
+/* ------------------ Sistema para cadastro de eventos (Lógica 1) ------------------ */
 
 // Variáveis voltadas ao evento em sí.
 let nome_Evento = "Fundamentos da programação WEB";
 let data_Atual = "05/08/2021";
-let data_Evento = "05/08/2021";
+let data_Evento = "09/08/2021";
 
 // Variáveis voltadas aos participantes.
 let idade = 21;
