@@ -18,7 +18,7 @@ let total = evento.palestrantes + evento.convidados;
 
 // Descrição do evento
 console.log(`
-*--- ${evento.descricao} ---* 
+Evento: ${evento.descricao} 
 Data atual: ${evento.hoje}
 Data do evento: ${evento.data}
 idade do organizador: ${evento.idade_org + " anos"}
