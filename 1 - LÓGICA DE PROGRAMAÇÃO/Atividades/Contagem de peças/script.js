@@ -1,6 +1,7 @@
 /* ------------------------- Sistema de cadastro de peças ------------------------- */
 
 var listaDePecas = [];
+var pesoTotal = 0;
 
 // Pergunta inicial, para definir a quantidade de itens na lista de peças.
 var quantidadeLista = window.prompt(`+ ---------- Parâmetros para cadastro ---------- +
@@ -77,4 +78,12 @@ for (var x = 0; x < quantidadeLista; x++) {
     conteudo = document.createElement("td");
     conteudo.innerHTML = listaDePecas[x].peso + "g";
     document.getElementById("tr" + x).appendChild(conteudo);
+
+    // Soma o peso total dos itens
+    pesoTotal = pesoTotal + listaDePecas[x].peso;
 }
+
+document.getElementById("relatorio").innerHTML = `<strong>Total de itens: </strong>${listaDePecas.length} peças<br>
+<strong>Peso total dos itens</strong>(g): ${pesoTotal}g<br>
+<strong>Peso total dos itens</strong>(Kg): ${pesoTotal / 1000}Kg 
+`;
