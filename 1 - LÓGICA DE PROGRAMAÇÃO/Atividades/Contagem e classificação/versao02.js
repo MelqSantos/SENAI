@@ -1,55 +1,61 @@
 const campeonato = [];
-const campeonatoFinal = [];
-const times = [
-    { time: "Chelsea", vitorias: 15, empates: 5, derrotas: 5 },
-    { time: "Arsenal", vitorias: 12, empates: 8, derrotas: 0 },
-    { time: "Tottenham", vitorias: 8, empates: 10, derrotas: 2 },
-    { time: "Manchester united", vitorias: 13, empates: 5, derrotas: 2 },
-    { time: "Manchester city", vitorias: 10, empates: 9, derrotas: 1 },
-    { time: "Leicester", vitorias: 5, empates: 10, derrotas: 5 }
+var times = [
+    { time: "São Paulo", vitorias: 10, empates: 5, derrotas: 5 },
+    { time: "Corinthians", vitorias: 12, empates: 8, derrotas: 0 },
+    { time: "Santos", vitorias: 8, empates: 10, derrotas: 2 },
+    { time: "Palmeiras", vitorias: 13, empates: 5, derrotas: 2 },
+    { time: "Cuiabá", vitorias: 10, empates: 9, derrotas: 1 },
+    { time: "RB Bragantino", vitorias: 5, empates: 10, derrotas: 5 },
+    { time: "Chapecoense", vitorias: 3, empates: 7, derrotas: 10 },
+    { time: "Atlético mineiro", vitorias: 17, empates: 1, derrotas: 2 },
+    { time: "Flamengo", vitorias: 16, empates: 1, derrotas: 3 },
+    { time: "Fortaleza", vitorias: 14, empates: 4, derrotas: 2 },
+    { time: "Fluminense", vitorias: 10, empates: 5, derrotas: 5 },
+    { time: "Internacional", vitorias: 9, empates: 4, derrotas: 4 }
 ]
 
-function pontos(pos) {
-    var vitorias = times[pos].vitorias * 3;
-    var empate = times[pos].empates;
-    var pontos = vitorias + empate;
-
-    return pontos
-}
-
-
+// Soma os pontos de cada time e adiciona uma nova característica aos objetos (Pontos) 
 for (var x = 0; x < times.length; x++) {
 
-    campeonato.push({
-        Pontos: pontos(x),
-        Time: times[x].time,
-        Vitorias: times[x].vitorias
-    })
+    var vitorias = times[x].vitorias;
+    var empate = times[x].empates;
+    var somaPontos = (vitorias * 3) + empate;
+    var jogos = times[x].vitorias + times[x].empates + times[x].derrotas;
+
+    times[x].Pontos = somaPontos;
+    times[x].Jogos = jogos;
 }
 
-campeonato.sort(function(a, b) {
-    if (a.Pontos < b.Pontos) {
-        return 1;
-    }
+/* Método sort para ordenar */
+times.sort(function(a, b) {
     if (a.Pontos > b.Pontos) {
-        return -1;
+        return -1
     }
-    if (a.Pontos === b.Pontos) {
-        return 0;
+    if (a.Pontos < b.Pontos) {
+        return 1
     }
+    // Se a for igual a b
+    return 0
 })
 
-for (var x = 0; x < times.length; x++) {
 
-    campeonatoFinal.push({
-        Posição: x + 1,
-        Pontos: campeonato[x].Pontos,
-        Time: campeonato[x].Time,
-        Vitórias: campeonato[x].Vitorias
+// Adiciona as informações em um novo array, acrescentando a posição no campeonato
+for (var i = 0; i < times.length; i++) {
+    campeonato.push({
+        Posição: i + 1,
+        Time: times[i].time,
+        Jogos: times[i].Jogos,
+        Pontos: times[i].Pontos,
+        Vitórias: times[i].vitorias
     })
 }
 
-console.log(`
-+ ---------------------- Classificação ---------------------- +
-`)
-console.table(campeonatoFinal)
+var qtdTimes = campeonato.length;
+
+console.log(" ")
+console.log(`+ ------------------------ Classificação ------------------------ +
+G4 Libertadores: ${campeonato[0].Time}, ${campeonato[1].Time}, ${campeonato[2].Time}, ${campeonato[3].Time}
+Z4 Rebaixamento: ${campeonato[qtdTimes -4].Time}, ${campeonato[qtdTimes -3].Time}, ${campeonato[qtdTimes -2].Time}, ${campeonato[qtdTimes-1].Time}
+`);
+
+console.table(campeonato)
