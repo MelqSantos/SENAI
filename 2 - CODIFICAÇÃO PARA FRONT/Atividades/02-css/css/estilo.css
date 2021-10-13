@@ -167,14 +167,14 @@ ul li {
 
 /* ------------------- Sobre nós ------------------- */
 
-#sobre img {
-    border-radius: 50%;
-    box-shadow: 4px 4px 4px var(--preto);
-}
-
 #sobre h2 {
     color: var(--azul);
     text-shadow: .5px .5px var(--preto);
+}
+
+#sobre img {
+    border-radius: 50%;
+    box-shadow: 4px 4px 4px var(--preto);
 }
 
 #sobre p {
@@ -297,7 +297,8 @@ ul li {
 
 /* ------------------- Destaques ------------------- */
 
-.fa-star {
+.fa-star,
+.fa-star-half {
     color: #efce4a;
     text-shadow: 1px 1px 1px var(--preto);
 }
@@ -436,4 +437,14 @@ ul li {
 
 .autor a i {
     padding-left: 5px;
+}
+
+
+/* ------------------- Páginas de listagem de produtos ------------------- */
+
+
+/* Paginação */
+
+.pagination a {
+    color: var(--preto) !important;
 }
