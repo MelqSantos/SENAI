@@ -172,7 +172,7 @@ ul li {
     text-shadow: .5px .5px var(--preto);
 }
 
-#sobre img {
+.sobre-img {
     border-radius: 50%;
     box-shadow: 4px 4px 4px var(--preto);
 }
@@ -180,6 +180,22 @@ ul li {
 #sobre p {
     opacity: .9;
     text-align: justify;
+}
+
+#sobre .social-wrapper {
+    justify-content: end;
+}
+
+#sobre .IconSocialSobre {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#sobre .IconSocialSobre img {
+    margin-left: 10px;
+    border-radius: 0;
+    box-shadow: 0;
 }
 
 
