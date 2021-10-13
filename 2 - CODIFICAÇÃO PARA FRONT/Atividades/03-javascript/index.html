@@ -109,11 +109,51 @@
         <!-- Fim do header -->
 
         <section id="Banner">
-            <!-- Início do Banner -->
-            <article class="banner col-md-12">
-                <img id="img-banner" src="midia/banners/fifa.jpg" alt="Jogo fifa 2022 - PS4" width="100%" height="25%">
 
-                <!-- Ícones abaixo do banner -->
+            <article class="banner col-md-12">
+
+                <!-- Início do Carousel -->
+                <div id="carousel-games" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carousel-games" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carousel-games" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carousel-games" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="midia/banners/gow.jpg" class="d-block w-100" alt="Fifa 22">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>God of War</h5>
+                                <p>Conheça a jornada de Kratos, disponível no PS4.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="midia/banners/retro.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>The legend of Zelda</h5>
+                                <p>Explore esse mundo fantástico, disponível no Nitendo Switch.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="midia/banners/fifa.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>FIFA 2022</h5>
+                                <p>Jogue com os melhores jogadores do mundo, disponível em todas as plataformas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-games" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel-games" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <!-- Fim do Carousel -->
+
+                <!-- Ícones abaixo do Carousel -->
                 <div class="row">
                     <div class="col-md-12 icone-wrapper">
                         <div class="icon">
@@ -142,9 +182,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- Fim dos ícones abaixo do banner -->
+                <!-- Fim dos ícones abaixo do Carousel -->
             </article>
-            <!-- Fim do banner -->
 
             <!-- Início do breadcrumb -->
             <nav id="breadcrumb-wrapper" aria-label="breadcrumb">
@@ -448,5 +487,10 @@
 
 
 </body>
+
+<!-- Bootstrap Js / Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="js/script.js"></script>
 
 </html>
