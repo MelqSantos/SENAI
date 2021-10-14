@@ -77,6 +77,25 @@ ul li {
     cursor: pointer;
 }
 
+.menu span {
+    justify-content: center;
+}
+
+#iconeSalvo {
+    display: flex;
+    justify-content: space-around;
+}
+
+#salvos {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #88bb1b;
+    text-align: center;
+    color: var(--branco);
+    text-shadow: 1px 1px var(--preto);
+}
+
 
 /* Submenu com os links */
 
