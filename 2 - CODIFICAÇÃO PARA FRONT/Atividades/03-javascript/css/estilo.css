@@ -38,7 +38,8 @@ ul li {
 /* ------------- Header ------------- */
 
 .menu {
-    padding-top: 15px;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 .menu .row {
@@ -92,8 +93,18 @@ ul li {
     border-radius: 50%;
     background-color: #88bb1b;
     text-align: center;
+    align-items: center;
+    justify-content: center;
     color: var(--branco);
     text-shadow: 1px 1px var(--preto);
+}
+
+#login {
+    text-align: left;
+    padding-top: 10px;
+    font-weight: 300;
+    font-style: italic;
+    font-size: .9rem;
 }
 
 
@@ -499,4 +510,16 @@ h5 {
 
 .pagination a {
     color: var(--preto) !important;
+}
+
+
+/* Modal */
+
+.modal-title {
+    text-shadow: none;
+}
+
+.modal-footer #alerta {
+    color: #FE5335;
+    margin-right: auto;
 }
