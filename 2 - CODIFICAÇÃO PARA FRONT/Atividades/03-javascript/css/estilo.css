@@ -91,7 +91,7 @@ ul li {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background-color: #88bb1b;
+    background-color: var(--ciano);
     text-align: center;
     align-items: center;
     justify-content: center;

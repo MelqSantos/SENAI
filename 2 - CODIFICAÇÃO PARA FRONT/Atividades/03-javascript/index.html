@@ -50,8 +50,8 @@
                         <div class="icones col-md-3">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <img data-bs-toggle="modal" data-bs-target="#exampleModal" src="midia/icones/login.png" alt="Ícone de login" width="35" height="35">
-                                    <span>Login</span>
+                                    <img id="img-login" data-bs-toggle="modal" data-bs-target="#exampleModal" src="midia/icones/login.png" alt="Ícone de login" width="35" height="35">
+                                    <span id="span-login">Login</span>
                                 </div>
                                 <div class="col-md-4">
                                     <img src="midia/icones/cesta.png" alt="Ícone cesta de compras" width="35" height="35">
@@ -80,7 +80,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Simulação de login</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -89,16 +89,12 @@
                                         <label for="name" class="col-form-label">Nome</label>
                                         <input type="text" class="form-control" id="name" placeholder="Digite o nome de usuário">
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="senha" class="col-form-label">Senha</label>
-                                        <input type="password" class="form-control" id="senha" placeholder="Digite sua senha">
-                                    </div>
                                 </form>
                             </div>
                             <div class="modal-footer">
                                 <span id="alerta"></span>
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="button" id="entrar" onclick="validaLogin()" class="btn btn-success">Entrar</button>
+                                <button type="button" id="entrar" onclick="login()" class="btn btn-success">Entrar</button>
                             </div>
                         </div>
                     </div>
