@@ -41,6 +41,7 @@ function login() {
 /* Função para contagem de itens salvos 
 Pega o ID do botão clicado e formata o nome que será igual do ID do produto. */
 function salvarItem(idBotao) {
+    debugger
 
     if (typeof itensSalvos === "undefined") {
         // Variável global.
@@ -50,14 +51,17 @@ function salvarItem(idBotao) {
     var idIitem = idBotao.replace("btn", "item");
     var itemHTML = document.getElementById(idIitem);
     var salvos = document.getElementById("salvos");
+    var id = document.getElementById(idBotao).value;
+
 
     // Adiciona em uma lista a estrutura HTML do item selecionado.
     itensSalvos.push({
-        itemHTML
+        id: id,
+        dados: itemHTML
     })
 
-    var id = document.getElementById(idBotao).value;
-    alert(`${itensSalvos[id].itemHTML.children[1].textContent} - Salvo com sucesso!`)
+    let index = itensSalvos.findIndex(i => i.id == id);
+    alert(`${itensSalvos[index].dados.children[1].textContent} - Salvo com sucesso!`)
     salvos.innerText = itensSalvos.length;
 }
 
@@ -83,7 +87,7 @@ function mostrarSalvos() {
         // Clona o HTML dos itens Salvos e mostra na tela
         for (var x = 0; x < itensSalvos.length; x++) {
             // Clona o elemento HTML
-            var clone = itensSalvos[x].itemHTML.cloneNode(true);
+            var clone = itensSalvos[x].dados.cloneNode(true);
             var botoes = clone.children[4].children[0];
 
             // Remove o botão de salvar e altera o comprimento do botão de comprar.
