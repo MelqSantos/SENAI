@@ -17,9 +17,7 @@ body.onload = function() {
             sessionStorage.clear();
             window.location.href = "index.html";
         })
-
     }
-
 }
 
 /* Função fazer login e redirecionar para a tela principal */
@@ -49,15 +47,51 @@ function salvarItem(idBotao) {
         itensSalvos = [];
     }
 
-    let idIitem = idBotao.replace("btn", "item");
-    let itemHTML = document.getElementById(idIitem);
-    let salvos = document.getElementById("salvos")
+    var idIitem = idBotao.replace("btn", "item");
+    var itemHTML = document.getElementById(idIitem);
+    var salvos = document.getElementById("salvos");
 
     // Adiciona em uma lista a estrutura HTML do item selecionado.
     itensSalvos.push({
         itemHTML
     })
 
+    var id = document.getElementById(idBotao).value;
+    alert(`${itensSalvos[id].itemHTML.children[1].textContent} - Salvo com sucesso!`)
     salvos.innerText = itensSalvos.length;
+}
+
+/* Função para mostrar os itens salvos pelo usuário */
+function mostrarSalvos() {
+    var lista = document.getElementById("item");
+    var titulo = document.querySelector(".titulo-wrapper");
+    lista.innerHTML = "";
+
+    // Validação - Verifica se o usuário salvou algum item.
+    if (typeof itensSalvos === "undefined") {
+        alert("Você não possui itens salvos.")
+    } else {
+        document.getElementById("img-salvos").addEventListener("click", function() {
+            location.href = "#item";
+        })
+
+        // Duplica o título padrão usado na página e altera alguns elementos
+        var conteudoTit = titulo.cloneNode(true);
+        conteudoTit.children[0].children[2].innerText = "Itens Salvos";
+        lista.appendChild(conteudoTit);
+
+        // Clona o HTML dos itens Salvos e mostra na tela
+        for (var x = 0; x < itensSalvos.length; x++) {
+            // Clona o elemento HTML
+            var clone = itensSalvos[x].itemHTML.cloneNode(true);
+            var botoes = clone.children[4].children[0];
+
+            // Remove o botão de salvar e altera o comprimento do botão de comprar.
+            botoes.children[0].style.width = "100%";
+            botoes.children[1].style.display = "none";
+            lista.appendChild(clone)
+            window.location.href = "#item"
+        }
+    }
 
 }
