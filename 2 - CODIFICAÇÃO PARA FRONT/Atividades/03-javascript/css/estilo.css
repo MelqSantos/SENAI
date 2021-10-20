@@ -82,7 +82,8 @@ ul li {
     justify-content: center;
 }
 
-#iconeSalvo {
+#iconeSalvo,
+#iconeCesta {
     display: flex;
     justify-content: space-around;
 }
@@ -92,6 +93,18 @@ ul li {
     height: 25px;
     border-radius: 50%;
     background-color: var(--ciano);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: var(--branco);
+    text-shadow: 1px 1px var(--preto);
+}
+
+#cesta {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #88bb1b;
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -554,4 +567,36 @@ h5 {
 .modal-footer #alerta {
     color: #FE5335;
     margin-right: auto;
+}
+
+#cesta-vazia i {
+    color: red;
+}
+
+
+/* Modal de itens na cesta */
+
+table,
+th,
+tr,
+td {
+    border: 1px solid var(--preto);
+    border-collapse: collapse;
+    text-align: center;
+    font-weight: 400;
+    font-size: .9rem;
+}
+
+#titulo-tabela {
+    background-color: var(--preto);
+    color: var(--branco);
+}
+
+#total {
+    font-style: italic;
+    font-weight: 400;
+}
+
+#total strong {
+    font-size: 1.1rem;
 }

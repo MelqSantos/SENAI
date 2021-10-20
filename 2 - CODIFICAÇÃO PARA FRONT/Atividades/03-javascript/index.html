@@ -50,11 +50,14 @@
                         <div class="icones col-md-3">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <img id="img-login" data-bs-toggle="modal" data-bs-target="#exampleModal" src="midia/icones/login.png" alt="Ícone de login" width="35" height="35">
+                                    <img id="img-login" data-bs-toggle="modal" data-bs-target="#exampleModal" src="midia/icones/login.png" width="35" height="35">
                                     <span id="span-login">Login</span>
                                 </div>
                                 <div class="col-md-4">
-                                    <img src="midia/icones/cesta.png" alt="Ícone cesta de compras" width="35" height="35">
+                                    <div id="iconeCesta">
+                                        <img src="midia/icones/cesta.png" onclick="cesta()" data-bs-toggle="modal" data-bs-target="#exampleModal2" width="35" height="35">
+                                        <span id="cesta">0</span>
+                                    </div>
                                     <span>Cesta</span>
                                 </div>
                                 <div class="col-md-4">
@@ -75,12 +78,12 @@
                     </div>
                 </div>
 
-                <!-- Modal -->
+                <!-- Modal de itens Salvos -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Simulação de login</h5>
+                                <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-user"></i> | Simulação de login</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
@@ -101,6 +104,37 @@
                 </div>
                 <!-- Fim do modal -->
 
+                <!-- Modal de itens na cesta -->
+                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel2"><i class="fas fa-shopping-basket"></i> | Cesta de compras</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div id="cestaDeCompras" class="modal-body">
+                                <h6 id="cesta-vazia" class="modal-title"><i class="far fa-times-circle"></i> Cesta de compras vazia.</h6>
+
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr id="titulo-tabela">
+                                            <th scope="col">Id</th>
+                                            <th scope="col">Item</th>
+                                            <th scope="col">Preço</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="corpo-tabela"></tbody>
+                                </table>
+                                <div id="total"></div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                                <button type="button" class="btn btn-success">Finalizar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fim do modal -->
 
             </div>
 
