@@ -5,17 +5,18 @@ var body = document.querySelector("body");
 var usu = document.getElementById("login");
 var nomeUsu = document.getElementById("span-login");
 var imgLogin = document.getElementById("img-login");
+url = location.href;
 
 // Verificação - Caso o storage do navegador esteja vazio, é possível fazer login.
 body.onload = function() {
     if (typeof sessionStorage.nome != "undefined") {
         usu.innerHTML = `Bem vindo(a) - <i class="fas fa-ghost"></i> <strong style="color: var(--ciano)">${sessionStorage.nome}</strong>`;
-        nomeUsu.innerHTML = "<i class='fas fa-times-circle'></i>"
+        nomeUsu.innerHTML = "<i class='fas fa-times-circle'></i>";
 
         // Limpa o login e redireciona para a tela principal, caso o usuário clique novamente.
         imgLogin.addEventListener("click", function() {
             sessionStorage.clear();
-            window.location.href = "index.html";
+            window.location.href = url;
         })
     }
 }
@@ -32,7 +33,7 @@ function login() {
         alerta.innerHTML = "<i class='fas fa-times-circle'></i> Preencha o campo acima."
     } else {
         sessao.setItem("nome", nome);
-        window.location.href = "index.html";
+        window.location.href = url;
     }
 }
 
@@ -52,7 +53,7 @@ function salvarItem(idBotao) {
     var itemHTML = document.getElementById(idIitem);
     var salvos = document.getElementById("salvos");
     var cesta = document.getElementById("cesta");
-    var id = document.getElementById(idBotao).value;
+    var id = parseInt(document.getElementById(idBotao).value) + 1;
 
     // Adiciona em uma lista a estrutura HTML do item selecionado.
     itensSalvos.push({
@@ -74,7 +75,7 @@ function mostrarSalvos() {
 
     // Validação - Verifica se o usuário salvou algum item.
     if (typeof itensSalvos === "undefined") {
-        alert("Você não possui itens salvos.")
+        alert("Você não possui itens salvos.");
     } else {
         document.getElementById("img-salvos").addEventListener("click", function() {
             location.href = "#item";
@@ -156,6 +157,7 @@ function cesta() {
 
         var totalPreco = document.getElementById("total");
         totalPreco.innerHTML = `Total do pedido: <strong>${total.toLocaleString("pt-br", { style: "currency", currency: "BRL" })}</strong>`
+        document.getElementById("qtdItens").innerHTML = `(${itensSalvos.length}x)`
 
     } else {
         // Esconde a tabela caso não tenha nenhum item adicionado a cesta.

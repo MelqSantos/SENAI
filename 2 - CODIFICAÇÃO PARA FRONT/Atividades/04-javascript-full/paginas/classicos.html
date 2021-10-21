@@ -23,11 +23,10 @@
 <body>
     <div class="container">
         <!-- Início do header que contém o menu e o submenu -->
-        <header>
+        <header id="cabecalho">
             <div class="row">
                 <div class="menu col-md-12">
                     <div class="row">
-
                         <div class="col-md-2">
                             <a href="../index.html"><img src="../midia/logo.png" alt="Logotipo" width="150" height="130"></a>
                         </div>
@@ -51,22 +50,92 @@
                         <div class="icones col-md-3">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <img src="../midia/icones/login.png" alt="Ícone de login" width="35" height="35">
-                                    <span>Login</span>
+                                    <img id="img-login" data-bs-toggle="modal" data-bs-target="#exampleModal" src="../midia/icones/login.png" width="35" height="35">
+                                    <span id="span-login">Login</span>
                                 </div>
                                 <div class="col-md-4">
-                                    <img src="../midia/icones/cesta.png" alt="Ícone cesta de compras" width="35" height="35">
+                                    <div id="iconeCesta">
+                                        <img src="../midia/icones/cesta.png" onclick="cesta()" data-bs-toggle="modal" data-bs-target="#exampleModal2" width="35" height="35">
+                                        <span id="cesta">0</span>
+                                    </div>
                                     <span>Cesta</span>
                                 </div>
                                 <div class="col-md-4">
-                                    <img src="../midia/icones/salvos.png" alt="Ícone de itens salvos" width="35" height="35">
+                                    <div id="iconeSalvo">
+                                        <img id="img-salvos" onclick="mostrarSalvos()" src="../midia/icones/salvos.png" alt="Ícone de itens salvos" width="35" height="35">
+                                        <span id="salvos">0</span>
+                                    </div>
                                     <span>Salvos</span>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <span id="login"></span>
+                            </div>
+
                         </div>
                         <!-- Fim dos ícones -->
                     </div>
                 </div>
+
+                <!-- Modal de itens Salvos -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-user"></i> | Simulação de login</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="name" class="col-form-label">Nome</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Digite o nome de usuário">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <span id="alerta"></span>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" id="entrar" onclick="login()" class="btn btn-success">Entrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fim do modal -->
+
+                <!-- Modal de itens na cesta -->
+                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel2"><i class="fas fa-shopping-basket"></i> | Cesta de compras <span id="qtdItens"></span></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div id="cestaDeCompras" class="modal-body">
+                                <h6 id="cesta-vazia" class="modal-title"><i class="far fa-times-circle"></i> Cesta de compras vazia.</h6>
+
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr id="titulo-tabela">
+                                            <th scope="col">Id</th>
+                                            <th scope="col">Item</th>
+                                            <th scope="col">Preço</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="corpo-tabela"></tbody>
+                                </table>
+                                <div id="total"></div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                                <button type="button" class="btn btn-success">Finalizar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fim do modal -->
+
             </div>
 
             <!-- Início do submenu -->
@@ -74,31 +143,31 @@
                 <nav class="submenu">
                     <ul>
                         <li>
-                            <a href="../paginas/todos.html">Todos os departamentos</a>
+                            <a href="todos.html">Todos os departamentos</a>
                             <span class="barra"></span>
                         </li>
                         <li>
-                            <a href="../paginas/classicos.html">Clássicos</a>
+                            <a href="classicos.html">Clássicos</a>
                             <span class="barra"></span>
                         </li>
                         <li>
-                            <a href="../paginas/pcGamer.html">PC Gamer</a>
+                            <a href="pcGamer.html">PC Gamer</a>
                             <span class="barra"></span>
                         </li>
                         <li>
-                            <a href="../paginas/portateis.html">Portáteis</a>
+                            <a href="portateis.html">Portáteis</a>
                             <span class="barra"></span>
                         </li>
                         <li>
-                            <a href="../paginas/playstation.html">Playstation</a>
+                            <a href="playstation.html">Playstation</a>
                             <span class="barra"></span>
                         </li>
                         <li>
-                            <a href="../paginas/xbox.html">Xbox Series</a>
+                            <a href="xbox.html">Xbox Series</a>
                             <span class="barra"></span>
                         </li>
                         <li>
-                            <a href="../paginas/acessorios.html">Acessórios</a>
+                            <a href="acessorios.html">Acessórios</a>
                             <span class="barra"></span>
                         </li>
                     </ul>
@@ -108,12 +177,18 @@
         </header>
         <!-- Fim do header -->
 
+        <!-- Ícone para subir a tela -->
+        <a href="#cabecalho" class="botao-subir">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+        <!-- Fim do ícone -->
+
         <!-- Início do breadcrumb -->
         <nav id="breadcrumb-wrapper" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Produtos</li>
-                <li class="breadcrumb-item"><a href="../paginas/detalheProduto.html">Detalhes do produto</a></li>
+                <li class="breadcrumb-item"><a href="detalheProduto.html">Detalhes do produto</a></li>
             </ol>
         </nav>
         <!-- Fim do breadcrumb -->
@@ -163,7 +238,7 @@
             <article>
                 <div class="row">
                     <!-- Início do 1° produto -->
-                    <div class="col-md-3">
+                    <div id="item-play2" class="col-md-3">
                         <div class="img-produto">
                             <img src="../midia/produtos/classicos/PS2-Fat.png" alt="imagem do Ps2" width="100%" height="40%">
                         </div>
@@ -176,12 +251,12 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <p>R$ 499,00</p>
-                        <div class="botoes-produto d-flex" style="flex-direction: column;">
+                        <div class="botoes-produto" style="flex-direction: column;">
                             <div class="d-flex">
-                                <button type="button" class="btn btn-success" style="width: 50%">
+                                <button type="button" class="btn btn-success">
                                 <i class="fas fa-dollar-sign"></i> Comprar
                             </button>
-                                <button type="button" class="btn btn-primary" style="width: 50%">
+                                <button id="btn-play2" onclick="salvarItem(this.id)" type="button" class="btn btn-primary" value="13">
                                 <i class="far fa-save"></i> Salvar
                             </button>
                             </div>
@@ -193,7 +268,7 @@
                     <!-- Fim do 1° produto -->
 
                     <!-- Início do 2° produto -->
-                    <div class="col-md-3">
+                    <div id="item-gtaSa" class="col-md-3">
                         <div class="img-produto">
                             <img src="../midia/produtos/classicos/gta-san.png" alt="GTA San Andreas" width="100%" height="40%">
                         </div>
@@ -208,10 +283,10 @@
                         <p>R$ 49,00</p>
                         <div class="botoes-produto d-flex" style="flex-direction: column;">
                             <div class="d-flex">
-                                <button type="button" class="btn btn-success" style="width: 50%">
+                                <button type="button" class="btn btn-success">
                                 <i class="fas fa-dollar-sign"></i> Comprar
                             </button>
-                                <button type="button" class="btn btn-primary" style="width: 50%">
+                                <button id="btn-gtaSa" onclick="salvarItem(this.id)" type="button" class="btn btn-primary" value="14">
                                 <i class="far fa-save"></i> Salvar
                             </button>
                             </div>
@@ -223,7 +298,7 @@
                     <!-- Fim do 2° produto -->
 
                     <!-- Início do 3° produto -->
-                    <div class="col-md-3">
+                    <div id="item-bully" class="col-md-3">
                         <div class="img-produto">
                             <img src="../midia/produtos/classicos/bully.png" alt="Bully" width="100%" height="40%">
                         </div>
@@ -238,10 +313,10 @@
                         <p>R$ 49,99</p>
                         <div class="botoes-produto d-flex" style="flex-direction: column;">
                             <div class="d-flex">
-                                <button type="button" class="btn btn-success" style="width: 50%">
+                                <button type="button" class="btn btn-success">
                                 <i class="fas fa-dollar-sign"></i> Comprar
                             </button>
-                                <button type="button" class="btn btn-primary" style="width: 50%">
+                                <button id="btn-bully" onclick="salvarItem(this.id)" type="button" class="btn btn-primary" value="15">
                                 <i class="far fa-save"></i> Salvar
                             </button>
                             </div>
@@ -253,7 +328,7 @@
                     <!-- Fim do 3° produto -->
 
                     <!-- Início do 4° produto -->
-                    <div class="col-md-3">
+                    <div id="item-re4" class="col-md-3">
                         <div class="img-produto">
                             <img src="../midia/produtos/classicos/re4.jpg" alt="Resident evil 4" width="100%" height="40%">
                         </div>
@@ -268,10 +343,10 @@
                         <p>R$ 49,99</p>
                         <div class="botoes-produto d-flex" style="flex-direction: column;">
                             <div class="d-flex">
-                                <button type="button" class="btn btn-success" style="width: 50%">
+                                <button type="button" class="btn btn-success">
                                 <i class="fas fa-dollar-sign"></i> Comprar
                             </button>
-                                <button type="button" class="btn btn-primary" style="width: 50%">
+                                <button id="btn-re4" onclick="salvarItem(this.id)" type="button" class="btn btn-primary" value="16">
                                 <i class="far fa-save"></i> Salvar
                             </button>
                             </div>
@@ -285,7 +360,7 @@
 
                 <div class="row">
                     <!-- Início do 5° produto-->
-                    <div class="col-md-3">
+                    <div id="item-play1" class="col-md-3">
                         <div class="img-produto">
                             <img src="../midia/produtos/classicos/play1.jpg" alt="PS1" width="100%" height="40%">
                         </div>
@@ -300,10 +375,10 @@
                         <p>R$ 149,90</p>
                         <div class="botoes-produto d-flex" style="flex-direction: column;">
                             <div class="d-flex">
-                                <button type="button" class="btn btn-success" style="width: 50%">
+                                <button type="button" class="btn btn-success">
                                 <i class="fas fa-dollar-sign"></i> Comprar
                             </button>
-                                <button type="button" class="btn btn-primary" style="width: 50%">
+                                <button id="btn-play1" onclick="salvarItem(this.id)" type="button" class="btn btn-primary" value="17">
                                 <i class="far fa-save"></i> Salvar
                             </button>
                             </div>
@@ -315,7 +390,7 @@
                     <!-- Fim do 5° produto -->
 
                     <!-- Início do 6° produto -->
-                    <div class="col-md-3">
+                    <div id="item-jackie" class="col-md-3">
                         <div class="img-produto">
                             <img src="../midia/produtos/classicos/jackie.jpg" alt="Jackie" width="100%" height="40%">
                         </div>
@@ -330,10 +405,10 @@
                         <p>R$ 29,90</p>
                         <div class="botoes-produto d-flex" style="flex-direction: column;">
                             <div class="d-flex">
-                                <button type="button" class="btn btn-success" style="width: 50%">
+                                <button type="button" class="btn btn-success">
                                 <i class="fas fa-dollar-sign"></i> Comprar
                             </button>
-                                <button type="button" class="btn btn-primary" style="width: 50%">
+                                <button id="btn-jackie" onclick="salvarItem(this.id)" type="button" class="btn btn-primary" value="18">
                                 <i class="far fa-save"></i> Salvar
                             </button>
                             </div>
@@ -345,7 +420,7 @@
                     <!-- Fim do 6° produto -->
 
                     <!-- Início do 7° produto -->
-                    <div class="col-md-3">
+                    <div id="item-re2" class="col-md-3">
                         <div class="img-produto">
                             <img src="../midia/produtos/classicos/re1.jpg" alt="Resident evil 2" width="100%" height="40%">
                         </div>
@@ -360,10 +435,10 @@
                         <p>R$ 29,99</p>
                         <div class="botoes-produto d-flex" style="flex-direction: column;">
                             <div class="d-flex">
-                                <button type="button" class="btn btn-success" style="width: 50%">
+                                <button type="button" class="btn btn-success">
                                 <i class="fas fa-dollar-sign"></i> Comprar
                             </button>
-                                <button type="button" class="btn btn-primary" style="width: 50%">
+                                <button id="btn-re2" onclick="salvarItem(this.id)" type="button" class="btn btn-primary" value="19">
                                 <i class="far fa-save"></i> Salvar
                             </button>
                             </div>
@@ -375,7 +450,7 @@
                     <!-- Fim do 7° produto -->
 
                     <!-- Início do 8° produto -->
-                    <div class="col-md-3">
+                    <div id="item-tenchu2" class="col-md-3">
                         <div class="img-produto">
                             <img src="../midia/produtos/classicos/tenchu2.jpg" alt="Tenchu 2" width="100%" height="40%">
                         </div>
@@ -390,10 +465,10 @@
                         <p>R$ 249,99</p>
                         <div class="botoes-produto d-flex" style="flex-direction: column;">
                             <div class="d-flex">
-                                <button type="button" class="btn btn-success" style="width: 50%">
+                                <button type="button" class="btn btn-success">
                                 <i class="fas fa-dollar-sign"></i> Comprar
                             </button>
-                                <button type="button" class="btn btn-primary" style="width: 50%">
+                                <button id="btn-tenchu2" onclick="salvarItem(this.id)" type="button" class="btn btn-primary" value="20">
                                 <i class="far fa-save"></i> Salvar
                             </button>
                             </div>
@@ -425,6 +500,9 @@
                 </ul>
             </nav>
             <!-- Fim da paginação -->
+
+            <!-- Listagem de produtos salvos (Javascript adiciona) -->
+            <div class="row" id="item"></div>
 
         </section>
         <!-- Fim da seção listagem de produtos -->
@@ -484,6 +562,13 @@
             <a href="https://linkedin.com/in/melquisedec-santos" target="blank"><i class="fab fa-linkedin"></i></a>
         </div>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/script.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 
 </body>
 
