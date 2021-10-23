@@ -5,7 +5,11 @@ var body = document.querySelector("body");
 var usu = document.getElementById("login");
 var nomeUsu = document.getElementById("span-login");
 var imgLogin = document.getElementById("img-login");
+
+// Tratamento da url para quando o usuário fazer login.
 url = location.href;
+var urlFormat = url.split("#");
+url = urlFormat[0];
 
 // Verificação - Caso o storage do navegador esteja vazio, é possível fazer login.
 body.onload = function() {
@@ -53,7 +57,10 @@ function salvarItem(idBotao) {
     var itemHTML = document.getElementById(idIitem);
     var salvos = document.getElementById("salvos");
     var cesta = document.getElementById("cesta");
-    var id = parseInt(document.getElementById(idBotao).value) + 1;
+    var id = parseInt(document.getElementById(idBotao).value);
+
+
+    itemHTML.children[0].innerHTML += "<i class='fas fa-star'></i>";
 
     // Adiciona em uma lista a estrutura HTML do item selecionado.
     itensSalvos.push({
@@ -140,7 +147,7 @@ function cesta() {
 
             // Cria elemento "td", adiciona o ID no elemento e adiciona na 1° célula. 
             var celula = document.createElement("td");
-            celula.innerHTML = id;
+            celula.innerHTML = "0" + id;
             document.getElementById("tr" + x).appendChild(celula);
 
             // Cria elemento "td", adiciona o Nome do item no elemento e adiciona na 2° célula.
