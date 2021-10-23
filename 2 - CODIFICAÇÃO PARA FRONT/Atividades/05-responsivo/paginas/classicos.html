@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Descrição, palavras chaves e Autor do site -->
+    <meta name="description" content="E-commerce de games">
+    <meta name="keywords" content="Games, Playstation, Xbox, PC">
+    <meta name="author" content="Melqui Santos">
+
+    <!-- CSS Bootstrap -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/estilo.css">
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <title>Game mania - clássicos</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Início do header que contém o menu e o submenu -->
+        <header id="cabecalho">
+            <div class="row">
+                <div class="menu col-md-12">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <a href="../index.html"><img src="../midia/logo.png" alt="Logotipo" width="150" height="130"></a>
+                        </div>
+
+                        <!-- Aninhamento de divs para a barra de pesquisa -->
+                        <div class="col-md-7">
+                            <div class="row">
+                                <form class="d-flex">
+                                    <div class="col-md-9">
+                                        <input class="form-control" type="search" placeholder="O que está procurando hoje?" aria-label="Search">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button class="btn btn-success"><i class="fas fa-search"></i> Buscar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- fim da barra de pesquisa -->
+
+                        <!-- Ícones de login, cesta e salvos -->
+                        <div class="icones col-md-3">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img id="img-login" data-bs-toggle="modal" data-bs-target="#exampleModal" src="../midia/icones/login.png" width="35" height="35">
+                                    <span id="span-login">Login</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <div id="iconeCesta">
+                                        <img src="../midia/icones/cesta.png" onclick="cesta()" data-bs-toggle="modal" data-bs-target="#exampleModal2" width="35" height="35">
+                                        <span id="cesta">0</span>
+                                    </div>
+                                    <span>Cesta</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <div id="iconeSalvo">
+                                        <img id="img-salvos" onclick="mostrarSalvos()" src="../midia/icones/salvos.png" alt="Ícone de itens salvos" width="35" height="35">
+                                        <span id="salvos">0</span>
+                                    </div>
+                                    <span>Salvos</span>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <span id="login"></span>
+                            </div>
+
+                        </div>
+                        <!-- Fim dos ícones -->
+                    </div>
+                </div>
+
+                <!-- Modal de itens Salvos -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-user"></i> | Simulação de login</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="name" class="col-form-label">Nome</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Digite o nome de usuário">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <span id="alerta"></span>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" id="entrar" onclick="login()" class="btn btn-success">Entrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fim do modal -->
+
+                <!-- Modal de itens na cesta -->
+                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel2"><i class="fas fa-shopping-basket"></i> | Cesta de compras <span id="qtdItens"></span></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div id="cestaDeCompras" class="modal-body">
+                                <h6 id="cesta-vazia" class="modal-title"><i class="far fa-times-circle"></i> Cesta de compras vazia.</h6>
+
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr id="titulo-tabela">
+                                            <th scope="col">Id</th>
+                                            <th scope="col">Item</th>
+                                            <th scope="col">Preço</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="corpo-tabela"></tbody>
+                                </table>
+                                <div id="total"></div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                                <button type="button" class="btn btn-success">Finalizar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fim do modal -->
+
+            </div>
+
+            <!-- Início do submenu -->
+            <div class="row">
+                <nav class="submenu">
+                    <ul>
+                        <li>
+                            <a href="todos.html">Todos os departamentos</a>
+                            <span class="barra"></span>
+                        </li>
+                        <li>
+                            <a href="classicos.html">Clássicos</a>
+                            <span class="barra"></span>
+                        </li>
+                        <li>
+                            <a href="pcGamer.html">PC Gamer</a>
+                            <span class="barra"></span>
+                        </li>
+                        <li>
+                            <a href="portateis.html">Portáteis</a>
+                            <span class="barra"></span>
+                        </li>
+                        <li>
+                            <a href="playstation.html">Playstation</a>
+                            <span class="barra"></span>
+                        </li>
+                        <li>
+                            <a href="xbox.html">Xbox Series</a>
+                            <span class="barra"></span>
+                        </li>
+                        <li>
+                            <a href="acessorios.html">Acessórios</a>
+                            <span class="barra"></span>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- Fim do submenu -->
+        </header>
+        <!-- Fim do header -->
+
+        <!-- Ícone para subir a tela -->
+        <a href="#cabecalho" class="botao-subir">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+        <!-- Fim do ícone -->
+
+        <!-- Início do breadcrumb -->
+        <nav id="breadcrumb-wrapper" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Produtos</li>
+                <li class="breadcrumb-item"><a href="detalheProduto.html">Detalhes do produto</a></li>
+            </ol>
+        </nav>
+        <!-- Fim do breadcrumb -->
+
+        <!-- Resumo sobre a loja -->
+        <section id="sobre">
+            <article>
+                <div class="row">
+                    <h2>De gamer para gamer</h2>
+                    <h3>Saiba mais sobre nossos Produtos Clássicos</h3>
+                    <div class="col-md-12 d-flex align-items-center">
+                        <div class="col-md-2">
+                            <img class="sobre-img" src="../midia/classicos.gif" alt="Foto da loja" width="140" height="140">
+                        </div>
+                        <div class="col-md-10">
+                            <h4>Oferecemos produtos de todos os tipos</h4>
+                            <p>Localizados no centro de São Paulo, estamos no mercado oferecendo produtos para o público gamer. Somos apaixonados por tecnologia, assim também disponibilizamos produtos na área de informática, desde acessórios até PC Gamers
+                                completos. Em relação a produtos Clássicos, temos em estoque consoles, jogos e acessórios. Fique antento em nossa redes sociais. Veja abaixo nossos produtos relacionados à marca...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row social-wrapper">
+                    <div class="col-md-2 IconSocialSobre">
+                        <img src="../midia/icones/instagram.png" alt="Instagram" width="25" height="25">
+                        <img src="../midia/icones/gmail.png" alt="Instagram" width="25" height="25">
+                        <img src="../midia/icones/address.png" alt="Instagram" width="25" height="25">
+                    </div>
+                </div>
+            </article>
+        </section>
+        <!-- Fim do resumo -->
+
+        <!-- Início da seção listagem de produtos -->
+        <section id="destaques">
+            <!-- Título -->
+            <div class="titulo-wrapper row">
+                <div class="titulo">
+                    <span class="barra-titulo"></span>
+                    <img src="../midia/icones/mushroom.png" alt="Ícone do pacman" width="50" height="50">
+                    <h3>Clássicos</h3>
+                    <span class="barra-titulo"></span>
+                </div>
+            </div>
+            <!-- Fim do título -->
+
+            <!-- Início dos produtos -->
+            <article>
+                <div class="row">
+                    <!-- Início do 1° produto -->
+                    <div id="item-play2" class="col-md-3">
+                        <div class="img-produto">
+                            <img src="../midia/produtos/classicos/PS2-Fat.png" alt="imagem do Ps2" width="100%" height="40%">
+                        </div>
+                        <h3>Playstation 2</h3>
+                        <div class="estrelas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>R$ 499,00</p>
+                        <div class="botoes-produto" style="flex-direction: column;">
+                            <div class="d-flex">
+                                <button type="button" class="btn btn-success">
+                                <i class="fas fa-dollar-sign"></i> Comprar
+                            </button>
+                                <button id="btn-play2" onclick="salvarItem(this.id)" type="button" class="btn btn-primary" value="13">
+                                <i class="far fa-save"></i> Salvar
+                            </button>
+                            </div>
+                            <button type="button" class="btn btn-danger" style="width: 100%">
+                            <i class="far fa-question-circle"></i> Mais detalhes
+                        </button>
+                        </div>
+                    </div>
+                    <!-- Fim do 1° produto -->
+
+                    <!-- Início do 2° produto -->
+                    <div id="item-gtaSa" class="col-md-3">
+                        <div class="img-produto">
+                            <img src="../midia/produtos/classicos/gta-san.png" alt="GTA San Andreas" width="100%" height="40%">
+                        </div>
+                        <h3>GTA San Andreas</h3>
+                        <div class="estrelas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>R$ 49,00</p>
+                        <div class="botoes-produto d-flex" style="flex-direction: column;">
+                            <div class="d-flex">
+                                <button type="button" class="btn btn-success">
+                                <i class="fas fa-dollar-sign"></i> Comprar
+                            </button>
+                                <button id="btn-gtaSa" onclick="salvarItem(this.id)" type="button" class="btn btn-primary" value="14">
+                                <i class="far fa-save"></i> Salvar
+                            </button>
+                            </div>
+                            <button type="button" class="btn btn-danger" style="width: 100%">
+                            <i class="far fa-question-circle"></i> Mais detalhes
+                        </button>
+                        </div>
+                    </div>
+                    <!-- Fim do 2° produto -->
+
+                    <!-- Início do 3° produto -->
+                    <div id="item-bully" class="col-md-3">
+                        <div class="img-produto">
+                            <img src="../midia/produtos/classicos/bully.png" alt="Bully" width="100%" height="40%">
+                        </div>
+                        <h3>Bully PS2</h3>
+                        <div class="estrelas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>R$ 49,99</p>
+                        <div class="botoes-produto d-flex" style="flex-direction: column;">
+                            <div class="d-flex">
+                                <button type="button" class="btn btn-success">
+                                <i class="fas fa-dollar-sign"></i> Comprar
+                            </button>
+                                <button id="btn-bully" onclick="salvarItem(this.id)" type="button" class="btn btn-primary" value="15">
+                                <i class="far fa-save"></i> Salvar
+                            </button>
+                            </div>
+                            <button type="button" class="btn btn-danger" style="width: 100%">
+                            <i class="far fa-question-circle"></i> Mais detalhes
+                        </button>
+                        </div>
+                    </div>
+                    <!-- Fim do 3° produto -->
+
+                    <!-- Início do 4° produto -->
+                    <div id="item-re4" class="col-md-3">
+                        <div class="img-produto">
+                            <img src="../midia/produtos/classicos/re4.jpg" alt="Resident evil 4" width="100%" height="40%">
+                        </div>
+                        <h3>Resident evil 4</h3>
+                        <div class="estrelas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>R$ 49,99</p>
+                        <div class="botoes-produto d-flex" style="flex-direction: column;">
+                            <div class="d-flex">
+                                <button type="button" class="btn btn-success">
+                                <i class="fas fa-dollar-sign"></i> Comprar
+                            </button>
+                                <button id="btn-re4" onclick="salvarItem(this.id)" type="button" class="btn btn-primary" value="16">
+                                <i class="far fa-save"></i> Salvar
+                            </button>
+                            </div>
+                            <button type="button" class="btn btn-danger" style="width: 100%">
+                            <i class="far fa-question-circle"></i> Mais detalhes
+                        </button>
+                        </div>
+                    </div>
+                    <!-- Fim do 4° produto -->
+                </div>
+
+                <div class="row">
+                    <!-- Início do 5° produto-->
+                    <div id="item-play1" class="col-md-3">
+                        <div class="img-produto">
+                            <img src="../midia/produtos/classicos/play1.jpg" alt="PS1" width="100%" height="40%">
+                        </div>
+                        <h3>Playstation 1</h3>
+                        <div class="estrelas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half"></i>
+                        </div>
+                        <p>R$ 149,90</p>
+                        <div class="botoes-produto d-flex" style="flex-direction: column;">
+                            <div class="d-flex">
+                                <button type="button" class="btn btn-success">
+                                <i class="fas fa-dollar-sign"></i> Comprar
+                            </button>
+                                <button id="btn-play1" onclick="salvarItem(this.id)" type="button" class="btn btn-primary" value="17">
+                                <i class="far fa-save"></i> Salvar
+                            </button>
+                            </div>
+                            <button type="button" class="btn btn-danger" style="width: 100%">
+                            <i class="far fa-question-circle"></i> Mais detalhes
+                        </button>
+                        </div>
+                    </div>
+                    <!-- Fim do 5° produto -->
+
+                    <!-- Início do 6° produto -->
+                    <div id="item-jackie" class="col-md-3">
+                        <div class="img-produto">
+                            <img src="../midia/produtos/classicos/jackie.jpg" alt="Jackie" width="100%" height="40%">
+                        </div>
+                        <h3>Jackie Chan Stun...</h3>
+                        <div class="estrelas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>R$ 29,90</p>
+                        <div class="botoes-produto d-flex" style="flex-direction: column;">
+                            <div class="d-flex">
+                                <button type="button" class="btn btn-success">
+                                <i class="fas fa-dollar-sign"></i> Comprar
+                            </button>
+                                <button id="btn-jackie" onclick="salvarItem(this.id)" type="button" class="btn btn-primary" value="18">
+                                <i class="far fa-save"></i> Salvar
+                            </button>
+                            </div>
+                            <button type="button" class="btn btn-danger" style="width: 100%">
+                            <i class="far fa-question-circle"></i> Mais detalhes
+                        </button>
+                        </div>
+                    </div>
+                    <!-- Fim do 6° produto -->
+
+                    <!-- Início do 7° produto -->
+                    <div id="item-re2" class="col-md-3">
+                        <div class="img-produto">
+                            <img src="../midia/produtos/classicos/re1.jpg" alt="Resident evil 2" width="100%" height="40%">
+                        </div>
+                        <h3>Resident Evil 2</h3>
+                        <div class="estrelas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>R$ 29,99</p>
+                        <div class="botoes-produto d-flex" style="flex-direction: column;">
+                            <div class="d-flex">
+                                <button type="button" class="btn btn-success">
+                                <i class="fas fa-dollar-sign"></i> Comprar
+                            </button>
+                                <button id="btn-re2" onclick="salvarItem(this.id)" type="button" class="btn btn-primary" value="19">
+                                <i class="far fa-save"></i> Salvar
+                            </button>
+                            </div>
+                            <button type="button" class="btn btn-danger" style="width: 100%">
+                            <i class="far fa-question-circle"></i> Mais detalhes
+                        </button>
+                        </div>
+                    </div>
+                    <!-- Fim do 7° produto -->
+
+                    <!-- Início do 8° produto -->
+                    <div id="item-tenchu2" class="col-md-3">
+                        <div class="img-produto">
+                            <img src="../midia/produtos/classicos/tenchu2.jpg" alt="Tenchu 2" width="100%" height="40%">
+                        </div>
+                        <h3>Tenchu 2</h3>
+                        <div class="estrelas">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half"></i>
+                        </div>
+                        <p>R$ 249,99</p>
+                        <div class="botoes-produto d-flex" style="flex-direction: column;">
+                            <div class="d-flex">
+                                <button type="button" class="btn btn-success">
+                                <i class="fas fa-dollar-sign"></i> Comprar
+                            </button>
+                                <button id="btn-tenchu2" onclick="salvarItem(this.id)" type="button" class="btn btn-primary" value="20">
+                                <i class="far fa-save"></i> Salvar
+                            </button>
+                            </div>
+                            <button type="button" class="btn btn-danger" style="width: 100%">
+                            <i class="far fa-question-circle"></i> Mais detalhes
+                        </button>
+                        </div>
+                    </div>
+                    <!-- Fim do 8° produto -->
+                </div>
+            </article>
+
+            <!-- Início da paginação -->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Anterior</a>
+                    </li>
+                    <li class="page-item active">
+                        <span class="page-link">
+                          1
+                          <span class="sr-only">(current)</span>
+                        </span>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Próximo</a>
+                        </li>
+                </ul>
+            </nav>
+            <!-- Fim da paginação -->
+
+            <!-- Listagem de produtos salvos (Javascript adiciona) -->
+            <div class="row" id="item"></div>
+
+        </section>
+        <!-- Fim da seção listagem de produtos -->
+    </div>
+
+
+    <!-- Início do rodapé -->
+    <footer id="rodape" class="container-fluid">
+        <div class="row">
+            <div class=" col-md-2 ">
+                <h4>Institucional</h4>
+                <ul>
+                    <li><a href="# ">Sobre nós</a></li>
+                    <li><a href="# ">Políticas de vendas</a></li>
+                    <li><a href="# ">Termos e condições</a></li>
+                    <li><a href="# ">Trabalhe conosco</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-2 ">
+                <h4>Suporte</h4>
+                <ul>
+                    <li><a href="# ">Contato</a></li>
+                    <li><a href="# ">Consulta de solicitação</a></li>
+                    <li><a href="# ">Cancelamento</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-2 ">
+                <h4>Pedidos</h4>
+                <ul>
+                    <li><a href="# ">Rastreio</a></li>
+                    <li><a href="# ">Reembolso</a></li>
+                    <li><a href="# ">Dúvidas</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-6 ">
+                <h4>Fique por dentro das novidades</h4>
+
+                <p>Acompanhe nossas mídias digitais, garantimos benefícios exclusivos para os nossos seguidores. como, sorteios de produtos da loja, comunicação de eventos e promoções.</p>
+                <div class="icones-sociais">
+                    <img src="../midia/icones/facebook.png" alt="facebook">
+                    <img src="../midia/icones/instagram.png" alt="instagram">
+                    <img src="../midia/icones/youtube.png" alt="youtube">
+                    <img src="../midia/icones/gmail.png" alt="gmail">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- fim do rodapé -->
+
+    <div class="container-fluid autor-wrapper">
+        <div class="autor">
+            <span>&copy; 2021 Copyright - Melqui Santos</span>
+            <a href="https://github.com/MelqSantos" target="blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/melquisedec-santos" target="blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/script.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+
+</body>
+
+</html>
