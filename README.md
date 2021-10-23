@@ -9,6 +9,6 @@ Atividades do curso "Programador Front-end"
 - :open_file_folder: Organização de pastas/arquivos
 - :construction: Código em construção
 - :bug: Correção de bug
-
+- :test_tube: Testes
 
 
