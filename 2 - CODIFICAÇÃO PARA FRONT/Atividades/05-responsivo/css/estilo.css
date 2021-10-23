@@ -123,8 +123,29 @@ ul li {
 
 /* ------------- Mobile (Menu) -------------*/
 
+@keyframes mostrar {
+    0% {
+        transform: translateX(-70px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 #menu-mobile {
     display: none;
+}
+
+#menu-hamburguer {
+    display: none;
+    position: absolute;
+}
+
+.mostrar {
+    animation: mostrar 1s;
+    display: block !important;
 }
 
 @media (max-width: 640px) {
@@ -168,6 +189,32 @@ ul li {
     }
      ::-webkit-input-placeholder {
         font-size: .8rem;
+    }
+    /* Menu hamburguer */
+    #menu-hamburguer {
+        margin-top: 35%;
+        z-index: 999;
+        width: 60%;
+        padding-top: 15px;
+        border-radius: 15px;
+        background: #4ECDC4;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #556270, #4ECDC4);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #556270, #4ECDC4);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+    #menu-hamburguer a {
+        color: var(--branco);
+    }
+    .fa-times {
+        position: absolute;
+        color: var(--branco);
+        top: 0;
+        right: 0;
+        padding: 15px;
+        font-size: 22px;
+        text-shadow: 1px 1px 1px var(--preto);
     }
     /* Ícones do menu mobile */
     .icones-mobile {

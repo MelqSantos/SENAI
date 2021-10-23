@@ -172,3 +172,14 @@ function cesta() {
     }
 
 }
+
+/* Mostar e fechar o menu Hamburguer (Mobile) */
+function hamburguer() {
+    var menu = document.getElementById("menu-hamburguer");
+    var fechar = document.querySelector("#menu-hamburguer i");
+
+    menu.classList.add("mostrar");
+    fechar.addEventListener("click", function() {
+        menu.classList.remove("mostrar")
+    })
+}
