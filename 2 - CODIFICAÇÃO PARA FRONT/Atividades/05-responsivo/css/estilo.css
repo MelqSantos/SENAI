@@ -148,6 +148,11 @@ ul li {
     display: block !important;
 }
 
+.login-mobile-wrapper {
+    margin: 20px 0 15px 0;
+    text-align: center;
+}
+
 @media (max-width: 640px) {
     h1,
     h2,
@@ -194,7 +199,8 @@ ul li {
     #menu-hamburguer {
         margin-top: 35%;
         z-index: 999;
-        width: 60%;
+        width: 80%;
+        height: 32vh;
         padding-top: 15px;
         border-radius: 15px;
         background: #4ECDC4;
@@ -206,6 +212,7 @@ ul li {
     }
     #menu-hamburguer a {
         color: var(--branco);
+        padding-bottom: 5px;
     }
     .fa-times {
         position: absolute;
@@ -220,6 +227,10 @@ ul li {
     .icones-mobile {
         transform: scale(.9);
         width: 70%;
+    }
+    #login-mobile {
+        width: 100%;
+        position: absolute;
     }
     #menu-mobile .navbar {
         width: 30%;
@@ -236,6 +247,15 @@ ul li {
     }
     /* Rodapé */
     #rodape .col-md-2 {
+        text-align: center;
+    }
+    #rodape .col-md-6 {
+        text-align: justify;
+    }
+    #rodape h4 {
+        text-align: center;
+    }
+    .icones-sociais {
         text-align: center;
     }
 }

@@ -4,7 +4,10 @@
 var body = document.querySelector("body");
 var usu = document.getElementById("login");
 var nomeUsu = document.getElementById("span-login");
+var nomeUsuMob = document.getElementById("span-login-mobile");
+var UsuMob = document.getElementById("login-mobile");
 var imgLogin = document.getElementById("img-login");
+
 
 // Tratamento da url para quando o usuário fazer login.
 url = location.href;
@@ -15,7 +18,12 @@ url = urlFormat[0];
 body.onload = function() {
     if (typeof sessionStorage.nome != "undefined") {
         usu.innerHTML = `Bem vindo(a) - <i class="fas fa-ghost"></i> <strong style="color: var(--ciano)">${sessionStorage.nome}</strong>`;
+
+        // Login no Mobile
+        UsuMob.innerHTML = `Bem vindo(a) - <i class="fas fa-ghost"></i> <strong style="color: var(--ciano)">${sessionStorage.nome}</strong>`;
+
         nomeUsu.innerHTML = "<i class='fas fa-times-circle'></i>";
+        nomeUsuMob.innerHTML = "<i class='fas fa-times-circle'></i>";
 
         // Limpa o login e redireciona para a tela principal, caso o usuário clique novamente.
         imgLogin.addEventListener("click", function() {
@@ -179,7 +187,9 @@ function hamburguer() {
     var fechar = document.querySelector("#menu-hamburguer i");
 
     menu.classList.add("mostrar");
+
     fechar.addEventListener("click", function() {
-        menu.classList.remove("mostrar")
+        menu.removeAttribute("class");
+
     })
 }
