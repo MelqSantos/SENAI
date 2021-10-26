@@ -190,11 +190,12 @@ ul li {
     }
     #cabecalho form {
         justify-content: center;
+        align-items: center;
         padding-top: 10px;
     }
     #cabecalho form div {
-        transform: scale(1.03);
         margin-bottom: 12px;
+        height: 100%;
     }
      ::-webkit-input-placeholder {
         font-size: .8rem;
@@ -255,7 +256,7 @@ ul li {
     }
     /* Botões */
     .btn-primary,
-    .btn-success,
+    #destaques .btn-success,
     .btn-danger {
         height: 55px;
         font-size: 1.2rem;
