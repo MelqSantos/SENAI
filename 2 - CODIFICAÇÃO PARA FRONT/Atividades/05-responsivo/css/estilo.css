@@ -153,6 +153,10 @@ ul li {
     text-align: center;
 }
 
+.botao-gamer {
+    display: none;
+}
+
 @media (max-width: 640px) {
     h1,
     h2,
@@ -239,11 +243,55 @@ ul li {
     #sobre img {
         display: none;
     }
+    #sobre p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
     /* Botões */
     .btn-primary,
     .btn-success,
     .btn-danger {
         height: 40px;
+    }
+    /* Banners de categoria */
+    .banner-categoria {
+        border-radius: 0 !important;
+        border: none !important;
+        margin: 2px !important;
+        height: 140px !important;
+        justify-content: center !important;
+        padding-right: 12% !important;
+        padding-top: 2% !important;
+    }
+    .banner-categoria .botao-gamer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 0;
+        margin-right: 5%;
+    }
+    .banner-categoria .botao-gamer img {
+        width: 60px;
+        height: auto;
+    }
+    .banner-categoria .botao-gamer span {
+        font-weight: 300 !important;
+        font-style: italic;
+        font-size: .9rem;
+        color: var(--branco);
+        opacity: .6;
+    }
+    .banner-categoria .botao-gamer img {
+        padding: 0 !important;
+    }
+    /* Botao de subir */
+    .botao-subir {
+        transform: translateY(43vh) !important;
     }
     /* Rodapé */
     #rodape .col-md-2 {
