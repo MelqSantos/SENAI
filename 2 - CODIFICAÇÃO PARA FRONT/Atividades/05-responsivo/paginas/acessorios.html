@@ -27,12 +27,12 @@
             <div class="row">
                 <div class="menu col-md-12">
                     <div class="row">
-                        <div class="col-md-2">
+                        <div id="LogoLoja" class="col-md-2 col-sm-12 col-xs-12">
                             <a href="../index.html"><img src="../midia/logo.png" alt="Logotipo" width="150" height="130"></a>
                         </div>
 
                         <!-- Aninhamento de divs para a barra de pesquisa -->
-                        <div class="col-md-7">
+                        <div class="col-md-7 col-sm-12 col-xs-12">
                             <div class="row">
                                 <form class="d-flex">
                                     <div class="col-md-9">
@@ -46,21 +46,92 @@
                         </div>
                         <!-- fim da barra de pesquisa -->
 
+                        <!-- Menu mobile -->
+                        <nav id="menu-mobile" class="navbar navbar-light">
+                            <div class="container-fluid">
+                                <a class="navbar-brand">
+                                    <img src="../midia/icones/hamburguer.png" onclick="hamburguer()" width="45" height="35">
+                                </a>
+
+                                <nav id="menu-hamburguer">
+                                    <ul>
+                                        <li>
+                                            <a href="todos.html">Todos os departamentos</a>
+                                            <span class="barra"></span>
+                                        </li>
+                                        <i class="fas fa-times"></i>
+                                        <li>
+                                            <a href="classicos.html">Clássicos</a>
+                                            <span class="barra"></span>
+                                        </li>
+                                        <li>
+                                            <a href="pcGamer.html">PC Gamer</a>
+                                            <span class="barra"></span>
+                                        </li>
+                                        <li>
+                                            <a href="portateis.html">Portáteis</a>
+                                            <span class="barra"></span>
+                                        </li>
+                                        <li>
+                                            <a href="playstation.html">Playstation</a>
+                                            <span class="barra"></span>
+                                        </li>
+                                        <li>
+                                            <a href="xbox.html">Xbox Series</a>
+                                            <span class="barra"></span>
+                                        </li>
+                                        <li>
+                                            <a href="acessorios.html">Acessórios</a>
+                                            <span class="barra"></span>
+                                        </li>
+                                    </ul>
+                                </nav>
+
+                                <div class="icones-mobile">
+                                    <div class="row">
+                                        <div class="col">
+                                            <img id="img-login" data-bs-toggle="modal" data-bs-target="#exampleModal" src="../midia/icones/login.png" width="35" height="35">
+                                            <span id="span-login-mobile">Login</span>
+                                        </div>
+                                        <div class="col">
+                                            <div id="iconeCesta">
+                                                <img src="../midia/icones/cesta.png" onclick="cesta()" data-bs-toggle="modal" data-bs-target="#exampleModal2" width="35" height="35">
+                                                <span id="cesta">0</span>
+                                            </div>
+                                            <span>Cesta</span>
+                                        </div>
+                                        <div class="col">
+                                            <div id="iconeSalvo">
+                                                <img id="img-salvos" onclick="mostrarSalvos()" src="../midia/icones/salvos.png" alt="Ícone de itens salvos" width="35" height="35">
+                                                <span id="salvos">0</span>
+                                            </div>
+                                            <span>Salvos</span>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="row login-mobile-wrapper">
+                                        <div id="login-mobile"></div>
+                                    </div>
+                                </div>
+                        </nav>
+                        <!-- Fim do menu mobile -->
+
                         <!-- Ícones de login, cesta e salvos -->
-                        <div class="icones col-md-3">
+                        <div class="icones col-md-3 col-sm-6">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-sm-2">
                                     <img id="img-login" data-bs-toggle="modal" data-bs-target="#exampleModal" src="../midia/icones/login.png" width="35" height="35">
                                     <span id="span-login">Login</span>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-sm-2">
                                     <div id="iconeCesta">
                                         <img src="../midia/icones/cesta.png" onclick="cesta()" data-bs-toggle="modal" data-bs-target="#exampleModal2" width="35" height="35">
                                         <span id="cesta">0</span>
                                     </div>
                                     <span>Cesta</span>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-sm-2">
                                     <div id="iconeSalvo">
                                         <img id="img-salvos" onclick="mostrarSalvos()" src="../midia/icones/salvos.png" alt="Ícone de itens salvos" width="35" height="35">
                                         <span id="salvos">0</span>
@@ -75,105 +146,106 @@
 
                         </div>
                         <!-- Fim dos ícones -->
+                        </div>
                     </div>
-                </div>
 
-                <!-- Modal de itens Salvos -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-user"></i> | Simulação de login</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="mb-3">
-                                        <label for="name" class="col-form-label">Nome</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Digite o nome de usuário">
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <span id="alerta"></span>
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                                <button type="button" id="entrar" onclick="login()" class="btn btn-success">Entrar</button>
+                    <!-- Modal de itens Salvos -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-user"></i> | Simulação de login</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="name" class="col-form-label">Nome</label>
+                                            <input type="text" class="form-control" id="name" placeholder="Digite o nome de usuário">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <span id="alerta"></span>
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="button" id="entrar" onclick="login()" class="btn btn-success">Entrar</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- Fim do modal -->
+                    <!-- Fim do modal -->
 
-                <!-- Modal de itens na cesta -->
-                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel2"><i class="fas fa-shopping-basket"></i> | Cesta de compras <span id="qtdItens"></span></h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div id="cestaDeCompras" class="modal-body">
-                                <h6 id="cesta-vazia" class="modal-title"><i class="far fa-times-circle"></i> Cesta de compras vazia.</h6>
+                    <!-- Modal de itens na cesta -->
+                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel2"><i class="fas fa-shopping-basket"></i> | Cesta de compras <span id="qtdItens"></span></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div id="cestaDeCompras" class="modal-body">
+                                    <h6 id="cesta-vazia" class="modal-title"><i class="far fa-times-circle"></i> Cesta de compras vazia.</h6>
 
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr id="titulo-tabela">
-                                            <th scope="col">Id</th>
-                                            <th scope="col">Item</th>
-                                            <th scope="col">Preço</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="corpo-tabela"></tbody>
-                                </table>
-                                <div id="total"></div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-                                <button type="button" class="btn btn-success">Finalizar</button>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr id="titulo-tabela">
+                                                <th scope="col">Id</th>
+                                                <th scope="col">Item</th>
+                                                <th scope="col">Preço</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="corpo-tabela"></tbody>
+                                    </table>
+                                    <div id="total"></div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+                                    <button type="button" class="btn btn-success">Finalizar</button>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- Fim do modal -->
+
                 </div>
-                <!-- Fim do modal -->
 
-            </div>
+                <!-- Início do submenu -->
+                <div class="row">
+                    <nav class="submenu">
+                        <ul>
+                            <li>
+                                <a href="todos.html">Todos os departamentos</a>
+                                <span class="barra"></span>
+                            </li>
+                            <li>
+                                <a href="classicos.html">Clássicos</a>
+                                <span class="barra"></span>
+                            </li>
+                            <li>
+                                <a href="pcGamer.html">PC Gamer</a>
+                                <span class="barra"></span>
+                            </li>
+                            <li>
+                                <a href="portateis.html">Portáteis</a>
+                                <span class="barra"></span>
+                            </li>
+                            <li>
+                                <a href="playstation.html">Playstation</a>
+                                <span class="barra"></span>
+                            </li>
+                            <li>
+                                <a href="xbox.html">Xbox Series</a>
+                                <span class="barra"></span>
+                            </li>
+                            <li>
+                                <a href="acessorios.html">Acessórios</a>
+                                <span class="barra"></span>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Fim do submenu -->
 
-            <!-- Início do submenu -->
-            <div class="row">
-                <nav class="submenu">
-                    <ul>
-                        <li>
-                            <a href="todos.html">Todos os departamentos</a>
-                            <span class="barra"></span>
-                        </li>
-                        <li>
-                            <a href="classicos.html">Clássicos</a>
-                            <span class="barra"></span>
-                        </li>
-                        <li>
-                            <a href="pcGamer.html">PC Gamer</a>
-                            <span class="barra"></span>
-                        </li>
-                        <li>
-                            <a href="portateis.html">Portáteis</a>
-                            <span class="barra"></span>
-                        </li>
-                        <li>
-                            <a href="playstation.html">Playstation</a>
-                            <span class="barra"></span>
-                        </li>
-                        <li>
-                            <a href="xbox.html">Xbox Series</a>
-                            <span class="barra"></span>
-                        </li>
-                        <li>
-                            <a href="acessorios.html">Acessórios</a>
-                            <span class="barra"></span>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <!-- Fim do submenu -->
         </header>
         <!-- Fim do header -->
 
@@ -188,7 +260,6 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Produtos</li>
-                <li class="breadcrumb-item"><a href="../paginas/detalheProduto.html">Detalhes do produto</a></li>
             </ol>
         </nav>
         <!-- Fim do breadcrumb -->
@@ -501,68 +572,68 @@
 
         </section>
         <!-- Fim da seção listagem de produtos -->
-    </div>
+        </div>
 
-    <!-- Início do rodapé -->
-    <footer id="rodape" class="container-fluid">
-        <div class="row">
-            <div class=" col-md-2 ">
-                <h4>Institucional</h4>
-                <ul>
-                    <li><a href="# ">Sobre nós</a></li>
-                    <li><a href="# ">Políticas de vendas</a></li>
-                    <li><a href="# ">Termos e condições</a></li>
-                    <li><a href="# ">Trabalhe conosco</a></li>
-                </ul>
-            </div>
+        <!-- Início do rodapé -->
+        <footer id="rodape" class="container-fluid">
+            <div class="row">
+                <div class=" col-md-2 ">
+                    <h4>Institucional</h4>
+                    <ul>
+                        <li><a href="# ">Sobre nós</a></li>
+                        <li><a href="# ">Políticas de vendas</a></li>
+                        <li><a href="# ">Termos e condições</a></li>
+                        <li><a href="# ">Trabalhe conosco</a></li>
+                    </ul>
+                </div>
 
-            <div class="col-md-2 ">
-                <h4>Suporte</h4>
-                <ul>
-                    <li><a href="# ">Contato</a></li>
-                    <li><a href="# ">Consulta de solicitação</a></li>
-                    <li><a href="# ">Cancelamento</a></li>
-                </ul>
-            </div>
+                <div class="col-md-2 ">
+                    <h4>Suporte</h4>
+                    <ul>
+                        <li><a href="# ">Contato</a></li>
+                        <li><a href="# ">Consulta de solicitação</a></li>
+                        <li><a href="# ">Cancelamento</a></li>
+                    </ul>
+                </div>
 
-            <div class="col-md-2 ">
-                <h4>Pedidos</h4>
-                <ul>
-                    <li><a href="# ">Rastreio</a></li>
-                    <li><a href="# ">Reembolso</a></li>
-                    <li><a href="# ">Dúvidas</a></li>
-                </ul>
-            </div>
+                <div class="col-md-2 ">
+                    <h4>Pedidos</h4>
+                    <ul>
+                        <li><a href="# ">Rastreio</a></li>
+                        <li><a href="# ">Reembolso</a></li>
+                        <li><a href="# ">Dúvidas</a></li>
+                    </ul>
+                </div>
 
-            <div class="col-md-6 ">
-                <h4>Fique por dentro das novidades</h4>
+                <div class="col-md-6 ">
+                    <h4>Fique por dentro das novidades</h4>
 
-                <p>Acompanhe nossas mídias digitais, garantimos benefícios exclusivos para os nossos seguidores. como, sorteios de produtos da loja, comunicação de eventos e promoções.</p>
-                <div class="icones-sociais">
-                    <img src="../midia/icones/facebook.png" alt="facebook">
-                    <img src="../midia/icones/instagram.png" alt="instagram">
-                    <img src="../midia/icones/youtube.png" alt="youtube">
-                    <img src="../midia/icones/gmail.png" alt="gmail">
+                    <p>Acompanhe nossas mídias digitais, garantimos benefícios exclusivos para os nossos seguidores. como, sorteios de produtos da loja, comunicação de eventos e promoções.</p>
+                    <div class="icones-sociais">
+                        <img src="../midia/icones/facebook.png" alt="facebook">
+                        <img src="../midia/icones/instagram.png" alt="instagram">
+                        <img src="../midia/icones/youtube.png" alt="youtube">
+                        <img src="../midia/icones/gmail.png" alt="gmail">
+                    </div>
                 </div>
             </div>
+        </footer>
+        <!-- fim do rodapé -->
+
+        <div class="container-fluid autor-wrapper">
+            <div class="autor">
+                <span>&copy; 2021 Copyright - Melqui Santos</span>
+                <a href="https://github.com/MelqSantos" target="blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/melquisedec-santos" target="blank"><i class="fab fa-linkedin"></i></a>
+            </div>
         </div>
-    </footer>
-    <!-- fim do rodapé -->
 
-    <div class="container-fluid autor-wrapper">
-        <div class="autor">
-            <span>&copy; 2021 Copyright - Melqui Santos</span>
-            <a href="https://github.com/MelqSantos" target="blank"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/melquisedec-santos" target="blank"><i class="fab fa-linkedin"></i></a>
-        </div>
-    </div>
+        <!-- Bootstrap JS -->
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/script.js"></script>
 
-    <!-- Bootstrap JS -->
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/script.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+        <!-- Popper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 
 </body>
 

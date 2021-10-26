@@ -227,6 +227,9 @@ ul li {
         font-size: 22px;
         text-shadow: 1px 1px 1px var(--preto);
     }
+    .estrelas {
+        padding-left: 4%;
+    }
     /* Ícones do menu mobile */
     .icones-mobile {
         transform: scale(.9);
@@ -254,7 +257,8 @@ ul li {
     .btn-primary,
     .btn-success,
     .btn-danger {
-        height: 40px;
+        height: 55px;
+        font-size: 1.2rem;
     }
     /* Banners de categoria */
     .banner-categoria {
