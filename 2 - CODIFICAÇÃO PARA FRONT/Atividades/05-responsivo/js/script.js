@@ -64,7 +64,9 @@ function salvarItem(idBotao) {
     var idIitem = idBotao.replace("btn", "item");
     var itemHTML = document.getElementById(idIitem);
     var salvos = document.getElementById("salvos");
+    var salvos_mobile = document.getElementById("salvos-mobile");
     var cesta = document.getElementById("cesta");
+    var cesta_mobile = document.getElementById("cesta-mobile");
     var id = parseInt(document.getElementById(idBotao).value);
 
 
@@ -79,7 +81,9 @@ function salvarItem(idBotao) {
     let index = itensSalvos.findIndex(i => i.id == id);
     alert(`${itensSalvos[index].dados.children[1].textContent} - Salvo com sucesso!`)
     salvos.innerText = itensSalvos.length;
+    salvos_mobile.innerText = itensSalvos.length;
     cesta.innerText = itensSalvos.length;
+    cesta_mobile.innerText = itensSalvos.length;
 }
 
 /* Função para mostrar os itens salvos pelo usuário */

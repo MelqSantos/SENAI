@@ -88,7 +88,8 @@ ul li {
     justify-content: space-around;
 }
 
-#salvos {
+#salvos,
+#salvos-mobile {
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -100,7 +101,8 @@ ul li {
     text-shadow: 1px 1px var(--preto);
 }
 
-#cesta {
+#cesta,
+#cesta-mobile {
     width: 25px;
     height: 25px;
     border-radius: 50%;
