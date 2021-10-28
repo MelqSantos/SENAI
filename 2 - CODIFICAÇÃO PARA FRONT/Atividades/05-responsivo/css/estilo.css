@@ -315,6 +315,51 @@ ul li {
     }
 }
 
+/* ------------------- Tablet ------------------- */
+
+@media screen and (max-width: 900px) and (min-width: 768px){
+
+    #LogoLoja{
+        width: 100% !important;
+        text-align: center !important;
+    }
+
+    #cabecalho .menu .row{
+        justify-content: center !important;
+    }
+    
+    #cabecalho .icones, .icon {
+        transform: scale(.8);
+    }
+
+    .icon p{
+        font-size: 12px !important;
+    }
+
+    #cabecalho .icones .row div{
+        width: 60px;
+        
+    }
+
+    #cabecalho .btn{
+        margin-left: 5px;
+    }
+    
+    #carousel-games img{
+        height: 250px !important;
+    }
+
+
+
+
+
+    
+
+}
+
+
+
+
 
 /* Ícone para subir a tela */
 
