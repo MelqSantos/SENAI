@@ -349,6 +349,20 @@ ul li {
         height: 250px !important;
     }
 
+    #sobre .row, #sobre .row h2{
+        justify-content: center !important;
+        text-align: center;
+    }
+
+    #sobre .row .col-md-12, h2, h3{
+        justify-content: center;
+        
+    }
+
+    #sobre .col-md-2{
+        display: none !important;
+    }
+
 
 
 

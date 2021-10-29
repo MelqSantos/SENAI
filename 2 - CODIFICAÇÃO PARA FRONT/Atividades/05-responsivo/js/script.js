@@ -7,6 +7,7 @@ var nomeUsu = document.getElementById("span-login");
 var nomeUsuMob = document.getElementById("span-login-mobile");
 var UsuMob = document.getElementById("login-mobile");
 var imgLogin = document.getElementById("img-login");
+var imgLoginMob = document.getElementById("img-login");
 
 
 // Tratamento da url para quando o usuário fazer login.
@@ -27,6 +28,11 @@ body.onload = function() {
 
         // Limpa o login e redireciona para a tela principal, caso o usuário clique novamente.
         imgLogin.addEventListener("click", function() {
+            sessionStorage.clear();
+            window.location.href = url;
+        })
+
+        imgLoginMob.addEventListener("click", function() {
             sessionStorage.clear();
             window.location.href = url;
         })
