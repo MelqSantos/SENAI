@@ -159,6 +159,15 @@ ul li {
     display: none;
 }
 
+@media screen and (max-width: 360px) {
+    .icones-mobile {
+        width: 100% !important;
+    }
+    .botao-subir {
+        top: 40% !important;
+    }
+}
+
 @media (max-width: 640px) {
     h1,
     h2,
@@ -315,64 +324,71 @@ ul li {
     }
 }
 
+
 /* ------------------- Tablet ------------------- */
 
-@media screen and (max-width: 900px) and (min-width: 768px){
-
-    #LogoLoja{
+@media screen and (max-width: 900px) and (min-width: 768px) {
+    #LogoLoja {
         width: 100% !important;
         text-align: center !important;
     }
-
-    #cabecalho .menu .row{
+    #cabecalho .menu .row {
         justify-content: center !important;
     }
-    
-    #cabecalho .icones, .icon {
+    #cabecalho .icones,
+    .icon {
         transform: scale(.8);
     }
-
-    .icon p{
+    .icon p {
         font-size: 12px !important;
     }
-
-    #cabecalho .icones .row div{
+    #cabecalho .icones .row div {
         width: 60px;
-        
     }
-
-    #cabecalho .btn{
+    #cabecalho .btn {
         margin-left: 5px;
     }
-    
-    #carousel-games img{
+    #carousel-games img {
         height: 250px !important;
     }
-
-    #sobre .row, #sobre .row h2{
+    #sobre .row,
+    #sobre .row h2 {
         justify-content: center !important;
         text-align: center;
     }
-
-    #sobre .row .col-md-12, h2, h3{
+    #sobre .row .col-md-12,
+    h2,
+    h3 {
         justify-content: center;
-        
     }
-
-    #sobre .col-md-2{
+    #sobre .col-md-2 {
         display: none !important;
     }
-
-
-
-
-
-    
-
+    .botao-subir {
+        top: 40% !important;
+    }
+    #destaques .col-md-3 h3 {
+        max-width: 150px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .botoes-produto .d-flex {
+        flex-direction: column;
+        justify-content: start;
+        width: 100%;
+    }
+    .botoes-produto .btn {
+        width: 20vw !important;
+        margin: 0;
+    }
+    .botoes-produto .btn-primary {
+        margin-left: 0 !important;
+    }
+    .icones .row div {
+        transform: scale(.92);
+    }
 }
-
-
-
 
 
 /* Ícone para subir a tela */
@@ -825,11 +841,6 @@ h5 {
 
 .modal-title {
     text-shadow: none;
-}
-
-.modal-footer #alerta {
-    color: #FE5335;
-    margin-right: auto;
 }
 
 #cesta-vazia i {
